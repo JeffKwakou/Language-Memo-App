@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Quiz mémo</title>
+{% endblock %}
+
+{% block body %}
+<h1>Quiz du mémo</h1>
+<div class="container">
+    <div>
+        <a href="/" class="btn btn-primary">Retour à la page d'accueil</a>
+    </div>
+    <div>
+        <h2>Quel est la traduction en anglais du mot :</h2>
+        <p><span class="bold-text">{{ random_traduction.french_word }}</span></p>
+        <p>Nombre de tentatives restantes : <span class="bold-text">{{ answer_attempts }}</span></p>
+    </div>
+    <form action="/quiz/answer/{{ random_traduction.id }}?answer={{ answer_attempts }}" method="post">
+        <div class="form-group">
+            <label for="traduction-en">Traduction en anglais :</label>
+            <input type="text" class="form-control" name="traduction-anglais" id="traduction-en" autocomplete="off" autofocus>
+        </div>
+            <button type="submit" class="btn btn-primary">Modifier la traduction</button>
+    </form>
+</div>
+{% endblock %}

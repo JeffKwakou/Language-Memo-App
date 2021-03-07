@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Mémo Français - Anglais</title>
+{% endblock %}
+
+{% block body %}
+<h1>Modifier la traduction</h1>
+<div class="container">
+    <form action="/update/{{ traduction.id }}" method="post">
+        <div class="form-group">
+            <label for="traduction-fr">Traduction en français :</label>
+            <input type="text" class="form-control" name="traduction-francais" id="traduction-fr" value="{{ traduction.french_word }}" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="traduction-en">Traduction en anglais :</label>
+            <input type="text" class="form-control" name="traduction-anglais" id="traduction-en" value="{{ traduction.english_word }}" autocomplete="off">
+        </div>
+            <button type="submit" class="btn btn-primary">Modifier la traduction</button>
+    </form>
+</div>
+{% endblock %}
